@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+
+printf "^C5^   ^d^"
+printf "$(date '+%I:%M %P') "

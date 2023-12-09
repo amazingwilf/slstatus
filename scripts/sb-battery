@@ -1,0 +1,34 @@
+#!/bin/sh
+# Description: Script to get battery status
+
+status="$(cat "/sys/class/power_supply/BAT0/status")"   # battery status
+percent=`acpi -i | awk 'NR==1{print $4}' | tr -cd [:digit:]`
+
+[ "$status" = "Charging" ] && icon_charge="^C4^ ^d^"
+
+if  [ "$percent" -eq 100 ]; then
+    icon_battery="^C2^󱟢 ^d^"
+elif [ "$percent" -ge 90 ]; then
+    icon_battery="^C2^󰂂 ^d^"
+elif [ "$percent" -ge 80 ]; then
+    icon_battery="^C2^󰂁 ^d^"
+elif [ "$percent" -ge 70 ]; then
+    icon_battery="^C2^󰂀 ^d^"
+elif [ "$percent" -ge 60 ]; then
+    icon_battery="^C2^󰁿 ^d^"
+elif [ "$percent" -ge 50 ]; then
+    icon_battery="^C2^󰁾 ^d^"
+elif [ "$percent" -ge 40 ]; then
+    icon_battery="^C2^󰁽 ^d^"
+elif [ "$percent" -ge 30 ]; then
+    icon_battery="^C2^󰁼 ^d^"
+elif [ "$percent" -ge 20 ]; then
+    icon_battery="^C2^󰁻 ^d^"
+elif [ "$percent" -ge 10 ]; then
+    icon_battery="^C2^󰁺 ^d^"
+else
+    icon_battery="^C1^󰂎 ^d^"
+fi
+
+echo "${icon_charge}${icon_battery}${percent}%"
+

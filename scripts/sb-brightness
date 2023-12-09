@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+CARD=sysfs/backlight/gmux_backlight
+
+brightness=$(printf "%.0f\n" `light -s "$CARD" -G`)
+
+current="${brightness%%%}"
+if [[ ("$current" -ge "0") && ("$current" -le "20") ]]; then
+	icon="^C5^󰃛  ^d^"
+elif [[ ("$current" -ge "20") && ("$current" -le "40") ]]; then
+	icon="^C1^󰃞  ^d^"
+elif [[ ("$current" -ge "40") && ("$current" -le "60") ]]; then
+	icon="^C9^󰃟  ^d^"
+elif [[ ("$current" -ge "60") && ("$current" -le "80") ]]; then
+	icon="^C3^󰃝  ^d^"
+elif [[ ("$current" -ge "80") && ("$current" -le "100") ]]; then
+	icon="^C3^󰃠  ^d^"
+fi
+
+echo "${icon} ${current}%"
+

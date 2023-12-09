@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+current=`pulsemixer --get-volume | cut -d' ' -f1`
+
+if [[ `pulsemixer --get-mute` == 1 ]]; then
+	icon="^C1^󰖁  ^d^"
+elif [[ "$current" -eq "0" ]]; then
+	icon="^C4^󰕿  ^d^"
+elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
+	icon="^C4^󰖀  ^d^"
+elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
+	icon="^C4^󰕾  ^d^"
+# elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
+else
+    icon="^C4^  ^d^"
+fi
+
+if [[ `pulsemixer --get-mute` == 1 ]]; then
+	output="^C8^muted  ^d^"
+else
+	output="${current}%"
+fi
+
+echo "${icon} ${output}"
+
