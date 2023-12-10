@@ -1,14 +1,14 @@
 #!/bin/bash
 
 icon="^C5^   ^d^"
-updates=$(checkupdates | wc -l)
+updates=$(checkupdates | wc -l )
 
 if [[ "$updates" == 0 ]]; then
     output="^C5^   ^d^    Up to date"
 elif [[ "$updates" == 1 ]]; then
     output="^C5^   ^d^  1 update"
 else
-    output="^C5^   ^d^  ${updates} updates"
+    output="^C5^         ^d^ ${updates}   updates"
 fi
 
 echo $output
