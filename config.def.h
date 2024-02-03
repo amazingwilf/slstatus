@@ -65,5 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function		format			argument */
+	{ run_command,		"%s",			"/usr/local/bin/statusbar/sb-volume" },
+	{ run_command,		"%s",			"/usr/local/bin/statusbar/sb-separator" },
 	{ datetime,		"^C3^  ^d^ %s",			"%T" },
 };
