@@ -2,5 +2,5 @@
 
 
 updates=`checkupdates 2>/dev/null | wc -l`
-echo "^C1^  ^d^ ${updates}"
+echo "^C9^  ^d^ ${updates}"
 
