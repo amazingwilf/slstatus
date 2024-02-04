@@ -1,0 +1,23 @@
+#!/bin/sh
+
+clock=$(date '+%I')
+
+case "$clock" in
+	"00") icon="^C6^󱑖  ^d^" ;;
+	"01") icon="^C6^󱑋  ^d^" ;;
+	"02") icon="^C6^󱑌  ^d^" ;;
+	"03") icon="^C6^󱑍  ^d^" ;;
+	"04") icon="^C6^󱑎  ^d^" ;;
+	"05") icon="^C6^󱑏  ^d^" ;;
+	"06") icon="^C6^󱑐  ^d^" ;;
+	"07") icon="^C6^󱑑  ^d^" ;;
+	"08") icon="^C6^󱑒  ^d^" ;;
+	"09") icon="^C6^󱑓  ^d^" ;;
+	"10") icon="^C6^󱑔  ^d^" ;;
+	"11") icon="^C6^󱑕  ^d^" ;;
+	"12") icon="^C6^󱑖  ^d^" ;;
+esac
+
+# date "+%Y %b %d (%a) $icon%I:%M%p"
+date "+$icon %I:%M %P"
+

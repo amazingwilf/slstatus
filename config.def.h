@@ -64,8 +64,15 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function		format			argument */
-	{ run_command,		"%s",			"/usr/local/bin/statusbar/sb-volume" },
-	{ run_command,		"%s",			"/usr/local/bin/statusbar/sb-separator" },
-	{ datetime,		"^C3^  ^d^ %s",			"%T" },
+	/* function			format				argument */
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-updates" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-brightness" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-battery" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-volume" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-clock" },
+	/* { datetime,			"^C3^  ^d^ %s",	"%T" }, */
 };

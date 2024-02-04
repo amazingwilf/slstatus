@@ -1,0 +1,77 @@
+#!/bin/sh
+
+pstate=`upower -i /org/freedesktop/UPower/devices/line_power_ADP1 | grep online | cut -d ':' -f2 | xargs`
+blevel=`upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | grep -o "[0-9]*" | head -n 1`
+
+case "$(echo ${pstate})" in
+ 	"yes") 
+		case 1 in
+			$((blevel == 100)) )
+				icon="^C02^󰂅  ^d^"
+			;;
+			$((blevel >= 90)) ) 
+				icon="^C2^󰂋  ^d^"
+			;;
+			$((blevel >= 80)) )
+				icon="^C2^󰂊  ^d^"
+			;;
+			$((blevel >= 70)) ) 
+				icon="^C2^󰢞  ^d^"
+			;;
+			$((blevel >= 60)) ) 
+				icon="^C2^󰂉  ^d^"
+			;;
+			$((blevel >= 50)) )
+				icon="^C2^󰢝  ^d^"
+			;;
+			$((blevel >= 40)) ) 
+				icon="^C2^󰂈  ^d^"
+			;;
+			$((blevel >= 30)) ) 
+				icon="^C2^󰂇  ^d^"
+			;;
+			$((blevel >= 20)) ) 
+				icon="^C2^󰂆  ^d^"
+			;;
+			$((blevel >= 10)) ) 
+				icon="^C2^󰢜  ^d^"
+			;;
+		esac
+	;;
+ 	"no") 
+		case 1 in
+			$((blevel == 100)) )
+				icon="^C4^󰂂  ^d^"
+			;;
+			$((blevel >= 90)) ) 
+				icon="^C4^󰂂  ^d^"
+			;;
+			$((blevel >= 80)) )
+				icon="^C4^󰂁  ^d^"
+			;;
+			$((blevel >= 70)) ) 
+				icon="^C4^󰂀  ^d^"
+			;;
+			$((blevel >= 60)) ) 
+				icon="^C3^󰁿  ^d^"
+			;;
+			$((blevel >= 50)) )
+				icon="^C3^󰁾  ^d^"
+			;;
+			$((blevel >= 40)) ) 
+				icon="^C3^󰁽  ^d^"
+			;;
+			$((blevel >= 30)) ) 
+				icon="^C3^󰁼  ^d^"
+			;;
+			$((blevel >= 20)) ) 
+				icon="^C1^󰁻  ^d^"
+			;;
+			$((blevel >= 10)) ) 
+				icon="^C1^󰁺  ^d^"
+			;;
+		esac
+	;;
+esac
+
+echo "${icon} ${blevel}%"

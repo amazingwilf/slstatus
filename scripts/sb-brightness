@@ -1,0 +1,30 @@
+#!/bin/sh
+
+card=sysfs/backlight/gmux_backlight
+
+brightness=$(printf "%.0f\n" `light -s "$card" -G`)
+
+case 1 in
+  $((brightness >= 80)) )
+    icon="^C3^󰃠  ^d^"
+  ;;
+  $((brightness >= 60)) )
+    icon="^C3^󰃟  ^d^"
+  ;;
+  $((brightness >= 40)) )
+    icon="^C1^󰃞  ^d^"
+  ;;
+  $((brightness >= 20)) )
+    icon="^C1^󰃝  ^d^"
+  ;;
+  $((brightness >= 80)) )
+    icon="^C5^󰃜  ^d^"
+  ;;
+  * )
+    icon="^C5^󰃛  ^d^"
+  ;;
+esac
+
+
+echo "${icon} ${brightness}%"
+
