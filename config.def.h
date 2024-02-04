@@ -74,5 +74,14 @@ static const struct arg args[] = {
 	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-volume" },
 	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
 	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-clock" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-changebar" },
+	{ kernel_release,	"^C03^   ^d^%s ",	"" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ hostname,			"^C04^󰹑   ^d^%s ",	"" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ ipv4,				"^C06^󰛳  ^d^%s",	"wlp4s0" },
+	{ run_command,		"%s",				"/usr/local/bin/statusbar/sb-separator" },
+	{ netspeed_rx,		"^C01^  ^d^%s ",	"wlp4s0" },
+	{ netspeed_tx,		"^C01^  ^d^%s",	"wlp4s0" },
 	/* { datetime,			"^C3^  ^d^ %s",	"%T" }, */
 };
