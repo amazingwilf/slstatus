@@ -71,9 +71,9 @@ static const struct arg args[] = {
 /*   { keyboard_indicators, "^c#d791a8^ Num: ^c#FFFFFF^%s", "num", NULL }, */
 /* { run_command, "^c#d791a8^  %s", "~/scripts/check_updates.sh" }, */
  /* { run_command, "^c#d791a8^  Updates: ^c#FFFFFF^%s",  "aptitude search '~U' | wc -l" }, */
-	{ cpu_perc, "^c#d791a8^  CPU: ^c#FFFFFF^%s%%", 	NULL },
-	{ ram_perc, "^c#d791a8^  RAM: ^c#FFFFFF^%s%%",	 NULL },
-	{ datetime, "^c#d791a8^  %s", 		"%a %b %-d" },
+	{ cpu_perc, "^C1^  CPU: ^C7^%s%%", 	NULL },
+	{ ram_perc, "^C1^  RAM: ^C7^%s%%",	 NULL },
+	{ datetime, "^C1^  %s", 		"%a %b %-d" },
 /*	{ datetime, "^c#FFFFFF^ %s", 		"%H:%M  " }, */
- 	{ datetime, "^c#FFFFFF^ %s", 		"%l:%M %p  " },	
+ 	{ datetime, "^C7^ %s", 		"%l:%M %P  " },	
 	};
